@@ -9,6 +9,7 @@ const ProgressBar = ({ id, progress, onComplete }) => {
     if (percent < 100) {
       interval = setInterval(() => {
         setPercent((prev) => {
+          //Need to check which one is lesser prev+progress  value or 100
           const newPercent = Math.min(prev + progress, 100);
           if (newPercent === 100) {
             clearInterval(interval);
@@ -27,7 +28,8 @@ const ProgressBar = ({ id, progress, onComplete }) => {
 
   return (
     <div style={{ margin: '10px 0' }}>
-      <div style={{ width: '100%', backgroundColor: '#eee' }}>
+      {/* You can write a css for this purpose */}
+      {/* <div style={{ width: '100%', backgroundColor: '#eee' }}>
         <div
           style={{
             width: `${percent}%`,
@@ -36,7 +38,9 @@ const ProgressBar = ({ id, progress, onComplete }) => {
             transition: 'width 1s',
           }}
         />
-      </div>
+      </div> */}
+      {/* Use this HTML progress Bar */}
+      <progress  value={percent} max="100"></progress>
       <p>{`Progress: ${Math.floor(percent)}%`}</p>
     </div>
   );

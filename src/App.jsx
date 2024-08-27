@@ -17,6 +17,8 @@ const App = () => {
       const nextBarToActivate = prev.find((bar) => !bar.active);
       if (!nextBarToActivate) return prev;
 
+      //update the progressData set completed as inactive 
+      // and make the inactive as active
       return prev.map((bar) =>
         bar.id === id
           ? { ...bar, active: false }
